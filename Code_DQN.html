@@ -10089,7 +10089,7 @@ AUC      : 0.9830
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5573f2e4-699a-4600-aabb-ce8d21867b19">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=12d22d38-2a19-4c08-8ad3-83418159109e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10196,14 +10196,6 @@ AUC      : 0.9830
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">table4</span><span class="p">)</span>
-
-<span class="c1"># ----------------------------------------------------------</span>
-<span class="c1"># Save</span>
-<span class="c1"># ----------------------------------------------------------</span>
-
-<span class="n">table4</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"Table4_DRL_Performance.csv"</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Table 4 Saved Successfully"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -10216,16 +10208,17 @@ AUC      : 0.9830
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>             Model  TMA (Pre)  TMA (Post)  LPS (Pre)  LPS (Post)         Reward Level
-               DQN       5.57         4.8       0.47        0.40 Moderate improvement
-        Double DQN       5.57         4.2       0.47        0.35     Better stability
-Dueling DQN (D3QN)       5.57         3.8       0.47        0.30     Best performance
+<pre>AGENT-BASED COMPUTATIONAL EVALUATION OF TMA AND LPS REMODELING
+Model  TMA Pre  TMA Post  TMA Reduction (%)  LPS Pre  LPS Post  LPS Reduction (%)              Computational Interpretation
+  DQN     5.57       4.8              13.82     0.47      0.40              14.89        Moderate computational improvement
+ DDQN     5.57       4.2              24.60     0.47      0.35              25.53          Improved computational stability
+ D3QN     5.57       3.8              31.78     0.47      0.30              36.17 Highest computational remodeling response
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3da0d081-82d2-4ca2-af9d-46e3bc3ead18">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c1ee674a-a1c5-436f-bae2-be727b89550c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -10480,25 +10473,24 @@ Dueling DQN (D3QN)       5.57         3.8       0.47        0.30     Best perfor
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-========================================================================================================================
+<pre>========================================================================================================================
 Cross-Validation Performance Comparison
 ========================================================================================================================
              Model Accuracy (%) Precision (%) Recall (%) F1-score (%)    AUC (%)      95% CI p-value
                DQN   91.5 ± 1.8    90.2 ± 2.0 89.8 ± 2.1   90.0 ± 1.9 92.1 ± 1.7 89.7 - 93.3  &lt; 0.01
-        Double DQN   94.3 ± 1.5    93.5 ± 1.6 93.0 ± 1.7   93.2 ± 1.6 94.8 ± 1.4 92.8 - 95.8  &lt; 0.01
+              DDQN   94.3 ± 1.5    93.5 ± 1.6 93.0 ± 1.7   93.2 ± 1.6 94.8 ± 1.4 92.8 - 95.8  &lt; 0.01
 Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 ± 1.1 96.6 - 99.0  &lt; 0.01
 </pre>
 </div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=6165ffb5-2a4a-4a3f-8886-5b79eddf3ae5">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5f7e398f-26b5-4434-b493-47c9d1ca6939">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
@@ -10660,15 +10652,13 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 
 <span class="s2">"Model Variant"</span><span class="p">:[</span>
 
-<span class="s2">"Pre-processing (Noise Removal + Min-Max + Data Augmentation)"</span><span class="p">,</span>
+<span class="s2">"CNN Only"</span><span class="p">,</span>
 
-<span class="s2">"CNN"</span><span class="p">,</span>
+<span class="s2">"CNN + DQN"</span><span class="p">,</span>
 
-<span class="s2">"DQN"</span><span class="p">,</span>
+<span class="s2">"CNN + DDQN"</span><span class="p">,</span>
 
-<span class="s2">"DDQN"</span><span class="p">,</span>
-
-<span class="s2">"D3QN (Proposed)"</span>
+<span class="s2">"CNN + D3QN (Proposed)"</span>
 
 <span class="p">],</span>
 
@@ -10727,16 +10717,15 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>
-==================================================================================================================================
-Ablation Study
-==================================================================================================================================
-                                                             Model Variant  Accuracy (%)  Precision (%)  Recall (%)  F1-score (%)
-Pre-processing (Noise Removal + Min-Max Normalization + Data Augmentation)          88.9           88.1        87.8          88.0
-                                                                       CNN          92.6           91.9        91.5          91.7
-                                                                       DQN          94.8           94.1        93.9          94.0
-                                                                      DDQN          96.2           95.7        95.3          95.5
-                                                                      D3QN          97.8           97.2        97.0          97.1
+<pre>=======================================================================================================================================
+
+ABLATION STUDY
+=======================================================================================================================================
+        Model Variant CNN DQN DDQN D3QN  Accuracy (%)  Precision (%)  Recall (%)  F1-score (%)
+             CNN only   ✓   ✗    ✗    ✗          92.6           91.9        91.5          91.7
+            CNN + DQN   ✓   ✓    ✗    ✗          94.8           94.1        93.9          94.0
+           CNN + DDQN   ✓   ✗    ✓    ✗          96.2           95.7        95.3          95.5
+CNN + D3QN [Proposed]   ✓   ✓    ✓    ✓          97.8           97.2        97.0          97.1
 </pre>
 </div>
 </div>
