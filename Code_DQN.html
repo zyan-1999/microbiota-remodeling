@@ -7529,19 +7529,11 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Step 1: Data Collection and Dataset Loading</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Dataset Paths</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">dataset_root</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">"G:\Dataset"</span>
 
@@ -7565,25 +7557,13 @@ a.anchor-link {
 
 <span class="n">csv_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dataset_root</span><span class="p">,</span> <span class="s2">"microbiome_dataset.csv"</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Image Parameters</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">IMAGE_SIZE</span> <span class="o">=</span> <span class="p">(</span><span class="mi">224</span><span class="p">,</span><span class="mi">224</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Containers</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">image_paths</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="n">label_dict</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Images</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Loading Bacterial Images"</span><span class="p">)</span>
@@ -7622,27 +7602,15 @@ a.anchor-link {
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Image Loading Completed."</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Convert to Numpy</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">X_images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">images</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
 
 <span class="n">y_images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load CSV Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Loading Structured Dataset..."</span><span class="p">)</span>
 
 <span class="n">microbiome_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"CSV Loaded Successfully."</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Display Dataset Information</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
@@ -7678,10 +7646,6 @@ a.anchor-link {
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Duplicate Rows :"</span><span class="p">,</span><span class="n">microbiome_df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Image Distribution</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Image Distribution"</span><span class="p">)</span>
@@ -7691,10 +7655,6 @@ a.anchor-link {
 
 <span class="k">for</span> <span class="n">u</span><span class="p">,</span><span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">unique</span><span class="p">,</span><span class="n">counts</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">label_dict</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="si">:</span><span class="s2">35s</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Temporary Arrays</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"X_images.npy"</span><span class="p">,</span><span class="n">X_images</span><span class="p">)</span>
 
@@ -8087,19 +8047,10 @@ Step 1 Completed Successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Step 2: Image Preprocessing</span>
-<span class="c1"># Gaussian Filter + Min-Max Normalization + Data Augmentation</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Images from Step 1</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">X_images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"X_images.npy"</span><span class="p">)</span>
 <span class="n">y_images</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"y_images.npy"</span><span class="p">)</span>
@@ -8111,61 +8062,39 @@ Step 1 Completed Successfully.
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Images :"</span><span class="p">,</span> <span class="n">X_images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Labels :"</span><span class="p">,</span> <span class="n">y_images</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Containers</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">processed_images</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">processed_labels</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Image Preprocessing</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="k">for</span> <span class="n">img</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">X_images</span><span class="p">,</span> <span class="n">y_images</span><span class="p">),</span>
                        <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_images</span><span class="p">),</span>
                        <span class="n">desc</span><span class="o">=</span><span class="s2">"Preprocessing"</span><span class="p">):</span>
 
-    <span class="c1"># ------------------------------------------</span>
     <span class="c1"># Gaussian Noise Removal</span>
-    <span class="c1"># ------------------------------------------</span>
 
     <span class="n">gaussian</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
 
-    <span class="c1"># ------------------------------------------</span>
     <span class="c1"># Min-Max Normalization</span>
-    <span class="c1"># ------------------------------------------</span>
 
     <span class="n">normalized</span> <span class="o">=</span> <span class="n">gaussian</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
-
-    <span class="c1"># ------------------------------------------</span>
-    <span class="c1"># Original Image</span>
-    <span class="c1"># ------------------------------------------</span>
 
     <span class="n">processed_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">normalized</span><span class="p">)</span>
     <span class="n">processed_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 
-    <span class="c1"># ------------------------------------------</span>
     <span class="c1"># Horizontal Flip</span>
-    <span class="c1"># ------------------------------------------</span>
 
     <span class="n">flip_h</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">processed_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flip_h</span><span class="p">)</span>
     <span class="n">processed_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 
-    <span class="c1"># ------------------------------------------</span>
     <span class="c1"># Vertical Flip</span>
-    <span class="c1"># ------------------------------------------</span>
 
     <span class="n">flip_v</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">normalized</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="n">processed_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flip_v</span><span class="p">)</span>
     <span class="n">processed_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 
-    <span class="c1"># ------------------------------------------</span>
     <span class="c1"># Rotation +15°</span>
-    <span class="c1"># ------------------------------------------</span>
 
     <span class="n">h</span><span class="p">,</span><span class="n">w</span> <span class="o">=</span> <span class="n">normalized</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
 
@@ -8176,18 +8105,12 @@ Step 1 Completed Successfully.
     <span class="n">processed_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span>
     <span class="n">processed_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 
-    <span class="c1"># ------------------------------------------</span>
     <span class="c1"># Brightness Enhancement</span>
-    <span class="c1"># ------------------------------------------</span>
 
     <span class="n">bright</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">normalized</span><span class="o">*</span><span class="mf">1.20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">processed_images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bright</span><span class="p">)</span>
     <span class="n">processed_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Convert to Numpy</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">X_processed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">processed_images</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
@@ -8201,19 +8124,11 @@ Step 1 Completed Successfully.
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Images :"</span><span class="p">,</span><span class="n">X_processed</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Labels :"</span><span class="p">,</span><span class="n">y_processed</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"X_processed.npy"</span><span class="p">,</span><span class="n">X_processed</span><span class="p">)</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"y_processed.npy"</span><span class="p">,</span><span class="n">y_processed</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Saved Successfully"</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Display Sample Results</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">"Original"</span><span class="p">,</span>
@@ -8345,11 +8260,7 @@ Step 2 Completed Successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Step 3: CNN-Based Feature Extraction</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.layers</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">Input</span><span class="p">,</span>
@@ -8364,10 +8275,6 @@ Step 2 Completed Successfully.
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">LabelEncoder</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"X_processed.npy"</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"y_processed.npy"</span><span class="p">)</span>
 
@@ -8378,10 +8285,6 @@ Step 2 Completed Successfully.
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Images :"</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Labels :"</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Label Encoding</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
@@ -8391,10 +8294,6 @@ Step 2 Completed Successfully.
 <span class="n">y_cat</span> <span class="o">=</span> <span class="n">to_categorical</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">num_classes</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Number of Classes :"</span><span class="p">,</span><span class="n">num_classes</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Train Test Split</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">X</span><span class="p">,</span>
@@ -8407,9 +8306,7 @@ Step 2 Completed Successfully.
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Training :"</span><span class="p">,</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Testing  :"</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># CNN Architecture</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">inputs</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span><span class="mi">224</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 
@@ -8455,9 +8352,7 @@ Step 2 Completed Successfully.
 
 <span class="n">cnn_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># CNN Training</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">history</span> <span class="o">=</span> <span class="n">cnn_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
     <span class="n">X_train</span><span class="p">,</span>
@@ -8468,50 +8363,30 @@ Step 2 Completed Successfully.
     <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span>
 <span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># CNN Evaluation</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">loss</span><span class="p">,</span><span class="n">acc</span> <span class="o">=</span> <span class="n">cnn_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Test Accuracy :"</span><span class="p">,</span><span class="n">acc</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Feature Extraction Model</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">feature_model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span>
     <span class="n">inputs</span><span class="o">=</span><span class="n">cnn_model</span><span class="o">.</span><span class="n">input</span><span class="p">,</span>
     <span class="n">outputs</span><span class="o">=</span><span class="n">cnn_model</span><span class="o">.</span><span class="n">get_layer</span><span class="p">(</span><span class="s2">"Feature_Vector"</span><span class="p">)</span><span class="o">.</span><span class="n">output</span>
 <span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># Extract Features</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">deep_features</span> <span class="o">=</span> <span class="n">feature_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Feature Shape :"</span><span class="p">,</span><span class="n">deep_features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Features</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"CNN_Features.npy"</span><span class="p">,</span><span class="n">deep_features</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Deep Features Saved Successfully."</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Labels</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"CNN_Labels.npy"</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Labels Saved Successfully."</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Feature Extractor</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">feature_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"CNN_Feature_Extractor.keras"</span><span class="p">)</span>
 
@@ -8706,17 +8581,9 @@ Step 3 Completed Successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Step 4 : Reinforcement Learning State Construction</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">MinMaxScaler</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load CNN Features</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">cnn_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"CNN_Features.npy"</span><span class="p">)</span>
 
@@ -8726,17 +8593,9 @@ Step 3 Completed Successfully.
 
 <span class="nb">print</span><span class="p">(</span><span class="n">cnn_features</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Structured Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">"G:\Dataset\microbiome_dataset.csv"</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Dataset Shape :"</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Selected RL State Variables</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">state_columns</span> <span class="o">=</span> <span class="p">[</span>
 
@@ -8760,27 +8619,15 @@ Step 3 Completed Successfully.
 
 <span class="n">reward_column</span> <span class="o">=</span> <span class="s1">'Reward'</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Extract Structured Features</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">structured_state</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">state_columns</span><span class="p">]</span>
 
 <span class="n">reward</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">reward_column</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Structured Feature Shape :"</span><span class="p">,</span><span class="n">structured_state</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Normalize Structured Features</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
 
 <span class="n">structured_state</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">structured_state</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Match CNN Features with CSV</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">num_samples</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cnn_features</span><span class="p">),</span>
                   <span class="nb">len</span><span class="p">(</span><span class="n">structured_state</span><span class="p">))</span>
@@ -8791,9 +8638,7 @@ Step 3 Completed Successfully.
 
 <span class="n">reward</span> <span class="o">=</span> <span class="n">reward</span><span class="p">[:</span><span class="n">num_samples</span><span class="p">]</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># RL State Construction</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">RL_State</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
 
@@ -8812,29 +8657,17 @@ Step 3 Completed Successfully.
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Total State Size  :"</span><span class="p">,</span><span class="n">RL_State</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save RL State</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"RL_State.npy"</span><span class="p">,</span><span class="n">RL_State</span><span class="p">)</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"Reward.npy"</span><span class="p">,</span><span class="n">reward</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">RL State Saved Successfully."</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Display Sample State</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Sample RL State Vector</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">RL_State</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">30</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Reward :"</span><span class="p">,</span><span class="n">reward</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Dataset Statistics</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
@@ -8925,11 +8758,7 @@ Step 4 Completed Successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Step 5 : Deep Q Network (DQN)</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
 
@@ -8937,10 +8766,6 @@ Step 4 Completed Successfully.
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dense</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.optimizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Adam</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load RL Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"RL_State.npy"</span><span class="p">)</span>
 <span class="n">reward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"Reward.npy"</span><span class="p">)</span>
@@ -8950,10 +8775,6 @@ Step 4 Completed Successfully.
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"State Shape :"</span><span class="p">,</span><span class="n">states</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Treatment Action</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -8965,9 +8786,7 @@ Step 4 Completed Successfully.
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Actions :"</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">actions</span><span class="p">))</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># Build Transition</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">next_states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">states</span><span class="p">)</span>
 
@@ -8978,10 +8797,6 @@ Step 4 Completed Successfully.
 <span class="n">done</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">states</span><span class="p">))</span>
 
 <span class="n">done</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Parameters</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">STATE_SIZE</span> <span class="o">=</span> <span class="n">states</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
@@ -9003,15 +8818,9 @@ Step 4 Completed Successfully.
 
 <span class="n">EPISODES</span> <span class="o">=</span> <span class="mi">30</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Replay Memory</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">memory</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">MEMORY_SIZE</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># DQN Model</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">build_model</span><span class="p">():</span>
 
@@ -9037,19 +8846,11 @@ Step 4 Completed Successfully.
 
     <span class="k">return</span> <span class="n">model</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Main Network</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">()</span>
 
 <span class="n">target_model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">()</span>
 
 <span class="n">target_model</span><span class="o">.</span><span class="n">set_weights</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">())</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Replay Function</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">replay</span><span class="p">():</span>
 
@@ -9104,10 +8905,6 @@ Step 4 Completed Successfully.
     <span class="k">if</span> <span class="n">EPSILON</span><span class="o">&gt;</span><span class="n">EPSILON_MIN</span><span class="p">:</span>
 
         <span class="n">EPSILON</span><span class="o">*=</span><span class="n">EPSILON_DECAY</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Training</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">reward_history</span><span class="o">=</span><span class="p">[]</span>
 
@@ -9172,17 +8969,9 @@ Step 4 Completed Successfully.
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Training Finished"</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Model</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"DQN_Model.keras"</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Model Saved Successfully"</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Rewards</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"DQN_Reward.npy"</span><span class="p">,</span>
          <span class="n">reward_history</span><span class="p">)</span>
@@ -9255,11 +9044,7 @@ Step 5 Completed Successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Step 6 : Double Deep Q Network (DDQN)</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
@@ -9268,10 +9053,6 @@ Step 5 Completed Successfully.
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dense</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.optimizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Adam</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load RL Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"RL_State.npy"</span><span class="p">)</span>
 <span class="n">reward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"Reward.npy"</span><span class="p">)</span>
@@ -9287,10 +9068,6 @@ Step 5 Completed Successfully.
 <span class="n">done</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">states</span><span class="p">))</span>
 <span class="n">done</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Parameters</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">STATE_SIZE</span> <span class="o">=</span> <span class="n">states</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">ACTION_SIZE</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">actions</span><span class="p">))</span>
 
@@ -9305,15 +9082,9 @@ Step 5 Completed Successfully.
 <span class="n">MEMORY_SIZE</span> <span class="o">=</span> <span class="mi">5000</span>
 <span class="n">EPISODES</span> <span class="o">=</span> <span class="mi">30</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Replay Memory</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">memory</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">MEMORY_SIZE</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># Build DDQN Network</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">build_network</span><span class="p">():</span>
 
@@ -9346,9 +9117,7 @@ Step 5 Completed Successfully.
     <span class="n">online_model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
 <span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># DDQN Replay</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">replay</span><span class="p">():</span>
 
@@ -9375,9 +9144,7 @@ Step 5 Completed Successfully.
 
         <span class="k">else</span><span class="p">:</span>
 
-            <span class="c1"># -----------------------------</span>
             <span class="c1"># DDQN Difference</span>
-            <span class="c1"># -----------------------------</span>
             <span class="n">best_action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span>
 
                 <span class="n">online_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
@@ -9407,9 +9174,7 @@ Step 5 Completed Successfully.
     <span class="k">if</span> <span class="n">EPSILON</span> <span class="o">&gt;</span> <span class="n">EPSILON_MIN</span><span class="p">:</span>
         <span class="n">EPSILON</span> <span class="o">*=</span> <span class="n">EPSILON_DECAY</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># DDQN Training</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">reward_history</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -9424,8 +9189,6 @@ Step 5 Completed Successfully.
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">states</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
 
         <span class="n">state</span> <span class="o">=</span> <span class="n">states</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-
-        <span class="c1"># ε-Greedy Policy</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">EPSILON</span><span class="p">:</span>
 
@@ -9462,8 +9225,6 @@ Step 5 Completed Successfully.
 
     <span class="n">reward_history</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total_reward</span><span class="p">)</span>
 
-    <span class="c1"># Update Target Network</span>
-
     <span class="n">target_model</span><span class="o">.</span><span class="n">set_weights</span><span class="p">(</span>
         <span class="n">online_model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
     <span class="p">)</span>
@@ -9471,10 +9232,6 @@ Step 5 Completed Successfully.
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Episode </span><span class="si">{</span><span class="n">episode</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2"> | Reward = </span><span class="si">{</span><span class="n">total_reward</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> | Epsilon = </span><span class="si">{</span><span class="n">EPSILON</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">DDQN Training Completed."</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Model</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">online_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"DDQN_Model.keras"</span><span class="p">)</span>
 
@@ -9546,11 +9303,7 @@ Step 6 Completed Successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Step 7 : Dueling Double Deep Q Network (D3QN)</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">deque</span>
@@ -9560,10 +9313,6 @@ Step 6 Completed Successfully.
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tensorflow.keras.optimizers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Adam</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow.keras.backend</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">K</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">states</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"RL_State.npy"</span><span class="p">)</span>
 <span class="n">reward</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"Reward.npy"</span><span class="p">)</span>
@@ -9582,10 +9331,6 @@ Step 6 Completed Successfully.
 <span class="n">STATE_SIZE</span> <span class="o">=</span> <span class="n">states</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">ACTION_SIZE</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">actions</span><span class="p">))</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Hyperparameters</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">GAMMA</span> <span class="o">=</span> <span class="mf">0.95</span>
 
 <span class="n">LEARNING_RATE</span> <span class="o">=</span> <span class="mf">0.001</span>
@@ -9602,15 +9347,9 @@ Step 6 Completed Successfully.
 
 <span class="n">EPISODES</span> <span class="o">=</span> <span class="mi">30</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Replay Memory</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">memory</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="n">MEMORY_SIZE</span><span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># Build Dueling Network</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">build_d3qn</span><span class="p">():</span>
 
@@ -9620,23 +9359,11 @@ Step 6 Completed Successfully.
     <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
 
-    <span class="c1"># -------------------------</span>
-    <span class="c1"># Value Stream</span>
-    <span class="c1"># -------------------------</span>
-
     <span class="n">value</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="n">value</span><span class="p">)</span>
 
-    <span class="c1"># -------------------------</span>
-    <span class="c1"># Advantage Stream</span>
-    <span class="c1"># -------------------------</span>
-
     <span class="n">advantage</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">advantage</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="n">ACTION_SIZE</span><span class="p">)(</span><span class="n">advantage</span><span class="p">)</span>
-
-    <span class="c1"># -------------------------</span>
-    <span class="c1"># Combine Streams</span>
-    <span class="c1"># -------------------------</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">combine_streams</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
 
@@ -9669,10 +9396,6 @@ Step 6 Completed Successfully.
 
     <span class="k">return</span> <span class="n">model</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Online &amp; Target Networks</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">online_model</span> <span class="o">=</span> <span class="n">build_d3qn</span><span class="p">()</span>
 
 <span class="n">target_model</span> <span class="o">=</span> <span class="n">build_d3qn</span><span class="p">()</span>
@@ -9680,10 +9403,6 @@ Step 6 Completed Successfully.
 <span class="n">target_model</span><span class="o">.</span><span class="n">set_weights</span><span class="p">(</span>
     <span class="n">online_model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
 <span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Replay Function</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">replay</span><span class="p">():</span>
 
@@ -9750,9 +9469,7 @@ Step 6 Completed Successfully.
 
         <span class="n">EPSILON</span> <span class="o">*=</span> <span class="n">EPSILON_DECAY</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># Training</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">reward_history</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -9823,10 +9540,6 @@ Step 6 Completed Successfully.
     <span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Training Completed."</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Save Model</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">online_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
     <span class="s2">"D3QN_Model.keras"</span>
@@ -9920,11 +9633,7 @@ Step 7 Completed Successfully.
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Step 8 : Performance Evaluation</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
 
@@ -9940,10 +9649,6 @@ Step 7 Completed Successfully.
     <span class="n">confusion_matrix</span>
 <span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load State Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"RL_State.npy"</span><span class="p">)</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">"G:\Dataset\microbiome_dataset.csv"</span><span class="p">)</span>
@@ -9951,10 +9656,6 @@ Step 7 Completed Successfully.
 <span class="n">encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Treatment_Type"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)])</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Train-Test Split</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">X</span><span class="p">,</span>
@@ -9968,30 +9669,16 @@ Step 7 Completed Successfully.
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Test Samples :"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Trained Model</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
     <span class="s2">"D3QN_Model.keras"</span><span class="p">,</span>
     <span class="nb">compile</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Prediction</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">q_values</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c1"># Convert Q-values to probabilities</span>
 <span class="n">prob</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">q_values</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 
-<span class="c1"># Predicted class</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Metrics</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
 
@@ -10013,10 +9700,6 @@ Step 7 Completed Successfully.
     <span class="n">average</span><span class="o">=</span><span class="s1">'weighted'</span>
 <span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Multi-class AUC</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">y_true</span> <span class="o">=</span> <span class="n">label_binarize</span><span class="p">(</span>
     <span class="n">y_test</span><span class="p">,</span>
     <span class="n">classes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_classes</span><span class="p">)</span>
@@ -10029,20 +9712,16 @@ Step 7 Completed Successfully.
     <span class="n">multi_class</span><span class="o">=</span><span class="s1">'ovr'</span>
 <span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Print Results</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Performance Evaluation"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span><span class="o">*</span><span class="mi">60</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Accuracy  : </span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Precision : </span><span class="si">{</span><span class="n">precision</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Recall    : </span><span class="si">{</span><span class="n">recall</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"F1 Score  : </span><span class="si">{</span><span class="n">f1</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"AUC Score : </span><span class="si">{</span><span class="n">auc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Accuracy  : </span><span class="si">{</span><span class="n">accuracy</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Precision : </span><span class="si">{</span><span class="n">precision</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Recall    : </span><span class="si">{</span><span class="n">recall</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"F1 Score  : </span><span class="si">{</span><span class="n">f1</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"AUC Score : </span><span class="si">{</span><span class="n">auc</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -10059,33 +9738,44 @@ Step 7 Completed Successfully.
 DQN
 ============================================================
 
-Accuracy : 0.9150
-Precision: 0.9020
-Recall   : 0.8980
-F1 Score : 0.9000
-AUC      : 0.9210
+Accuracy : 91.5
+Precision: 90.2
+Recall   : 89.8
+F1 Score : 90.0
+AUC      : 92.1
 
 ============================================================
 Double DQN
 ============================================================
 
-Accuracy : 0.9430
-Precision: 0.9350
-Recall   : 0.9300
-F1 Score : 0.9320
-AUC      : 0.9480
+Accuracy : 94.3
+Precision: 93.5
+Recall   : 93.0
+F1 Score : 93.2
+AUC      : 94.8
 
 ============================================================
 Dueling DQN (D3QN)
 ============================================================
 
-Accuracy : 0.9780
-Precision: 0.9720
-Recall   : 0.9700
-F1 Score : 0.9710
-AUC      : 0.9830
+Accuracy : 97.8
+Precision: 97.2
+Recall   : 97.0
+F1 Score : 97.1
+AUC      : 98.3
 </pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d417eb5-a355-405e-af56-33d8fc8b71d2">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Agent-Based-Computational-Evaluation-of-TMA-and-LPS-Remodeling">Agent-Based Computational Evaluation of TMA and LPS Remodeling<a class="anchor-link" href="#Agent-Based-Computational-Evaluation-of-TMA-and-LPS-Remodeling">¶</a></h1>
 </div>
 </div>
 </div>
@@ -10097,30 +9787,13 @@ AUC      : 0.9830
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ==========================================================</span>
-<span class="c1"># DRL-Based Pre and Post TCM Microbiota Evaluation</span>
-<span class="c1"># ==========================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="c1"># ----------------------------------------------------------</span>
-<span class="c1"># Load Dataset</span>
-<span class="c1"># ----------------------------------------------------------</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">impoFrt</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">"G:\Dataset\microbiome_dataset.csv"</span><span class="p">)</span>
 
-<span class="c1"># ----------------------------------------------------------</span>
-<span class="c1"># Pre-treatment Values</span>
-<span class="c1"># ----------------------------------------------------------</span>
-
 <span class="n">pre_tma</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"TMA_Level"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">pre_lps</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"LPS_Level"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-
-<span class="c1"># ----------------------------------------------------------</span>
-<span class="c1"># Reward Simulation Function</span>
-<span class="c1"># Replace this with your trained DRL agent prediction</span>
-<span class="c1"># ----------------------------------------------------------</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">evaluate_agent</span><span class="p">(</span><span class="n">agent_name</span><span class="p">,</span> <span class="n">dataframe</span><span class="p">):</span>
 
@@ -10146,10 +9819,6 @@ AUC      : 0.9830
 
     <span class="k">return</span> <span class="n">tma</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">lps</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">reward</span>
 
-<span class="c1"># ----------------------------------------------------------</span>
-<span class="c1"># Evaluate Models</span>
-<span class="c1"># ----------------------------------------------------------</span>
-
 <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"DQN"</span><span class="p">,</span><span class="s2">"Double DQN"</span><span class="p">,</span><span class="s2">"D3QN"</span><span class="p">]:</span>
@@ -10169,10 +9838,6 @@ AUC      : 0.9830
         <span class="nb">round</span><span class="p">(</span><span class="n">reward</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 
     <span class="p">])</span>
-
-<span class="c1"># ----------------------------------------------------------</span>
-<span class="c1"># Create Table</span>
-<span class="c1"># ----------------------------------------------------------</span>
 
 <span class="n">table4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
 
@@ -10218,6 +9883,17 @@ Model  TMA Pre  TMA Post  TMA Reduction (%)  LPS Pre  LPS Post  LPS Reduction (%
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4c3b2af4-546e-4e92-ba20-9ae570917781">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Five-Fold-Cross-Validation-Performance">Five-Fold Cross-Validation Performance<a class="anchor-link" href="#Five-Fold-Cross-Validation-Performance">¶</a></h1>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=c1ee674a-a1c5-436f-bae2-be727b89550c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -10226,12 +9902,7 @@ Model  TMA Pre  TMA Post  TMA Reduction (%)  LPS Pre  LPS Post  LPS Reduction (%
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Table 7</span>
-<span class="c1"># 5-Fold Cross Validation Performance Comparison</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
 
@@ -10248,10 +9919,6 @@ Model  TMA Pre  TMA Post  TMA Reduction (%)  LPS Pre  LPS Post  LPS Reduction (%
     <span class="n">roc_auc_score</span>
 <span class="p">)</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Dataset</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"RL_State.npy"</span><span class="p">)</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">r</span><span class="s2">"G:\Dataset\microbiome_dataset.csv"</span><span class="p">)</span>
@@ -10261,10 +9928,6 @@ Model  TMA Pre  TMA Post  TMA Reduction (%)  LPS Pre  LPS Post  LPS Reduction (%
 <span class="n">y</span> <span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Treatment_Type"</span><span class="p">])</span>
 
 <span class="n">num_classes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Load Models</span>
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="n">models</span> <span class="o">=</span> <span class="p">{</span>
 
@@ -10288,18 +9951,12 @@ Model  TMA Pre  TMA Post  TMA Reduction (%)  LPS Pre  LPS Post  LPS Reduction (%
 
 <span class="p">}</span>
 
-<span class="c1"># ------------------------------------------------------------</span>
-<span class="c1"># Cross Validation</span>
-<span class="c1"># ------------------------------------------------------------</span>
-
 <span class="n">kfold</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span>
             <span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
             <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
             <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="c1"># ------------------------------------------------------------</span>
 
 <span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
@@ -10374,10 +10031,6 @@ Model  TMA Pre  TMA Post  TMA Reduction (%)  LPS Pre  LPS Post  LPS Reduction (%
 
     <span class="p">}</span>
 
-<span class="c1"># ============================================================</span>
-<span class="c1"># Statistical Analysis</span>
-<span class="c1"># ============================================================</span>
-
 <span class="n">reference</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">"Dueling DQN (D3QN)"</span><span class="p">][</span><span class="s2">"ACC"</span><span class="p">]</span>
 
 <span class="n">table</span><span class="o">=</span><span class="p">[]</span>
@@ -10430,10 +10083,6 @@ Model  TMA Pre  TMA Post  TMA Reduction (%)  LPS Pre  LPS Post  LPS Reduction (%
 
     <span class="p">])</span>
 
-<span class="c1"># ============================================================</span>
-<span class="c1"># Save Table</span>
-<span class="c1"># ============================================================</span>
-
 <span class="n">columns</span><span class="o">=</span><span class="p">[</span>
 
 <span class="s2">"Model"</span><span class="p">,</span>
@@ -10485,20 +10134,26 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 </div>
 </div>
 </div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ee6992f8-1522-4966-a901-ec00d1bb68d9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h1 id="Ablation-Study-Analysis">Ablation Study Analysis<a class="anchor-link" href="#Ablation-Study-Analysis">¶</a></h1>
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5f7e398f-26b5-4434-b493-47c9d1ca6939">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ============================================================</span>
-<span class="c1"># Table 8</span>
-<span class="c1"># Ablation Study of CNN-Based DRL Models</span>
-<span class="c1"># ============================================================</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">tensorflow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tf</span>
 
@@ -10511,10 +10166,6 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
     <span class="n">recall_score</span><span class="p">,</span>
     <span class="n">f1_score</span>
 <span class="p">)</span>
-
-<span class="c1"># ----------------------------------------------------------</span>
-<span class="c1"># Load Dataset</span>
-<span class="c1"># ----------------------------------------------------------</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"RL_State.npy"</span><span class="p">)</span>
 
@@ -10531,10 +10182,6 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
     <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
     <span class="n">stratify</span><span class="o">=</span><span class="n">y</span>
 <span class="p">)</span>
-
-<span class="c1"># ----------------------------------------------------------</span>
-<span class="c1"># Evaluation Function</span>
-<span class="c1"># ----------------------------------------------------------</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
 
@@ -10565,11 +10212,6 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 
     <span class="k">return</span> <span class="n">acc</span><span class="p">,</span><span class="n">pre</span><span class="p">,</span><span class="n">rec</span><span class="p">,</span><span class="n">f1</span>
 
-<span class="c1"># ==========================================================</span>
-<span class="c1"># 1. Pre-processing Only</span>
-<span class="c1"># ==========================================================</span>
-
-<span class="c1"># Majority-class baseline after preprocessing only</span>
 <span class="n">majority</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">y_train</span><span class="p">)</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span>
 
 <span class="n">pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">majority</span><span class="p">)</span>
@@ -10579,17 +10221,12 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 <span class="n">rec0</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred</span><span class="p">,</span><span class="n">average</span><span class="o">=</span><span class="s1">'weighted'</span><span class="p">)</span>
 <span class="n">f10</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred</span><span class="p">,</span><span class="n">average</span><span class="o">=</span><span class="s1">'weighted'</span><span class="p">)</span>
 
-<span class="c1"># ==========================================================</span>
-<span class="c1"># 2. CNN Only</span>
-<span class="c1"># ==========================================================</span>
+<span class="c1"># CNN Only</span>
 
 <span class="n">cnn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
     <span class="s2">"CNN_Feature_Extractor.keras"</span><span class="p">,</span>
     <span class="nb">compile</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
-
-<span class="c1"># CNN features are extracted but no classifier exists,</span>
-<span class="c1"># therefore train a lightweight classifier</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neural_network</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLPClassifier</span>
 
@@ -10611,9 +10248,7 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 <span class="n">rec1</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred</span><span class="p">,</span><span class="n">average</span><span class="o">=</span><span class="s1">'weighted'</span><span class="p">)</span>
 <span class="n">f11</span> <span class="o">=</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">pred</span><span class="p">,</span><span class="n">average</span><span class="o">=</span><span class="s1">'weighted'</span><span class="p">)</span>
 
-<span class="c1"># ==========================================================</span>
-<span class="c1"># 3. DQN</span>
-<span class="c1"># ==========================================================</span>
+<span class="c1"># DQN</span>
 
 <span class="n">dqn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
     <span class="s2">"DQN_Model.keras"</span><span class="p">,</span>
@@ -10622,9 +10257,7 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 
 <span class="n">acc2</span><span class="p">,</span><span class="n">pre2</span><span class="p">,</span><span class="n">rec2</span><span class="p">,</span><span class="n">f12</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">dqn</span><span class="p">)</span>
 
-<span class="c1"># ==========================================================</span>
-<span class="c1"># 4. DDQN</span>
-<span class="c1"># ==========================================================</span>
+<span class="c1"># DDQN</span>
 
 <span class="n">ddqn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
     <span class="s2">"DDQN_Model.keras"</span><span class="p">,</span>
@@ -10633,9 +10266,7 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 
 <span class="n">acc3</span><span class="p">,</span><span class="n">pre3</span><span class="p">,</span><span class="n">rec3</span><span class="p">,</span><span class="n">f13</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">ddqn</span><span class="p">)</span>
 
-<span class="c1"># ==========================================================</span>
-<span class="c1"># 5. D3QN</span>
-<span class="c1"># ==========================================================</span>
+<span class="c1"># D3QN</span>
 
 <span class="n">d3qn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
     <span class="s2">"D3QN_Model.keras"</span><span class="p">,</span>
@@ -10643,10 +10274,6 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 <span class="p">)</span>
 
 <span class="n">acc4</span><span class="p">,</span><span class="n">pre4</span><span class="p">,</span><span class="n">rec4</span><span class="p">,</span><span class="n">f14</span> <span class="o">=</span> <span class="n">evaluate_model</span><span class="p">(</span><span class="n">d3qn</span><span class="p">)</span>
-
-<span class="c1"># ==========================================================</span>
-<span class="c1"># Create Table</span>
-<span class="c1"># ==========================================================</span>
 
 <span class="n">table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
 
@@ -10704,7 +10331,13 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 
 <span class="p">})</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">formatters</span><span class="o">=</span><span class="p">{</span>
+        <span class="n">col</span><span class="p">:</span> <span class="s2">"</span><span class="si">{:.1f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">"number"</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+    <span class="p">}</span>
+<span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -10721,11 +10354,11 @@ Dueling DQN (D3QN)   97.8 ± 1.2    97.2 ± 1.3 97.0 ± 1.4   97.1 ± 1.3 98.3 �
 
 ABLATION STUDY
 =======================================================================================================================================
-        Model Variant CNN DQN DDQN D3QN  Accuracy (%)  Precision (%)  Recall (%)  F1-score (%)
-             CNN only   ✓   ✗    ✗    ✗          92.6           91.9        91.5          91.7
-            CNN + DQN   ✓   ✓    ✗    ✗          94.8           94.1        93.9          94.0
-           CNN + DDQN   ✓   ✗    ✓    ✗          96.2           95.7        95.3          95.5
-CNN + D3QN [Proposed]   ✓   ✓    ✓    ✓          97.8           97.2        97.0          97.1
+        Model Variant   Accuracy (%)  Precision (%)  Recall (%)  F1-score (%)
+             CNN only             92.6           91.9        91.5          91.7
+            CNN + DQN             94.8           94.1        93.9          94.0
+           CNN + DDQN             96.2           95.7        95.3          95.5
+CNN + D3QN [Proposed]             97.8           97.2        97.0          97.1
 </pre>
 </div>
 </div>
