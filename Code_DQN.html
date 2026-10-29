@@ -8597,29 +8597,26 @@ Step 3 Completed Successfully.
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Dataset Shape :"</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
+<span class="c1"># Define RL state features</span>
 <span class="n">state_columns</span> <span class="o">=</span> <span class="p">[</span>
-
-<span class="s1">'B_fragilis'</span><span class="p">,</span>
-<span class="s1">'Bifido'</span><span class="p">,</span>
-<span class="s1">'E_coli'</span><span class="p">,</span>
-<span class="s1">'L_casei'</span><span class="p">,</span>
-<span class="s1">'L_plantarum'</span><span class="p">,</span>
-<span class="s1">'L_reuteri'</span><span class="p">,</span>
-<span class="s1">'L_rhamnosus'</span><span class="p">,</span>
-
-<span class="s1">'TMA_Level'</span><span class="p">,</span>
-<span class="s1">'LPS_Level'</span><span class="p">,</span>
-<span class="s1">'Diversity_Index'</span><span class="p">,</span>
-
-<span class="s1">'TCM_Dosage'</span><span class="p">,</span>
-
-<span class="s1">'Treatment_Type'</span>
-
+    <span class="s1">'B_fragilis'</span><span class="p">,</span>
+    <span class="s1">'Bifido'</span><span class="p">,</span>
+    <span class="s1">'E_coli'</span><span class="p">,</span>
+    <span class="s1">'L_casei'</span><span class="p">,</span>
+    <span class="s1">'L_plantarum'</span><span class="p">,</span>
+    <span class="s1">'L_reuteri'</span><span class="p">,</span>
+    <span class="s1">'L_rhamnosus'</span><span class="p">,</span>
+    <span class="s1">'TMA_Level'</span><span class="p">,</span>
+    <span class="s1">'LPS_Level'</span><span class="p">,</span>
+    <span class="s1">'Diversity_Index'</span><span class="p">,</span>
+    <span class="s1">'TCM_Dosage'</span>
 <span class="p">]</span>
 
 <span class="n">reward_column</span> <span class="o">=</span> <span class="s1">'Reward'</span>
 
 <span class="n">structured_state</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">state_columns</span><span class="p">]</span>
+
+<span class="n">treatment_target</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Treatment_Type'</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="n">reward</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">reward_column</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
@@ -10360,6 +10357,20 @@ ABLATION STUDY
            CNN + DDQN             96.2           95.7        95.3          95.5
 CNN + D3QN [Proposed]             97.8           97.2        97.0          97.1
 </pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a9777995-65e3-45f2-84e0-f7418d0bf2bc">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
 </div>
 </div>
 </div>
